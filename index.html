@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta al Consumidor</title>
+</head>
+<body>
+    <h1>Encuesta al Consumidor</h1>
+
+    <form action="https://sheetdb.io/api/v1/gvb4h8nhl2s7x" method="POST" id="sheetdb-form">
+        <label for="">DNI</label><br>
+        <input type="number" name="data[DNI]"><br><br>
+
+        <label for="">Nombre</label><br>
+        <input type="text" name="data[Nombre]" placeholder="Pon tu nombre"><br><br>
+
+        <label for="">Sexo</label><br>
+        <input type="radio" name="data[Sexo]">Femenino<br>
+        <input type="radio" name="data[Sexo]">Masculino<br><br>
+
+        <label for=""> Niveles</label><br>
+        <input type="checkbox" name="data[Niveles]" value="Si">Si
+
+        <input type="checkbox" name="data[Niveles]" value="No">No
+
+
+                    
+        </select><br><br>
+
+        <input type="submit">
+    </form>
+    <script>
+        var form = document.getElementById('sheetdb-form');
+        form.addEventListener("submit", e => {
+        e.preventDefault();
+        fetch(form.action, {
+            method : "POST",
+            body: new FormData(document.getElementById("sheetdb-form")),
+        }).then(
+            response => response.json()
+        ).then((html) => {
+            // you can put any JS code here
+            alert('success')
+        });
+        });
+    </script>
+</body>
+</html>
